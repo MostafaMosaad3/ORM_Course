@@ -1,5 +1,7 @@
 @extends('front.master');
 
+@section('index.active' , 'active')
+@section('title' , 'index')
 
 @section('header-content')
     @include('front.partials.header')
