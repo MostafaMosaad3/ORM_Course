@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 /**
@@ -36,5 +38,30 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    /**
+     * state function that make me able to change an attribute value
+     */
+    public function adminAccount()
+    {
+        return $this->state(function(array $attributes) {
+            return [
+                'is_admin' => true,
+            ];
+        });
+    }
+
+    /**
+     * configure function is callback function that is running after using the factory
+     */
+
+    public function configure()
+    {
+        return $this->afterMaking(function(User $user) {
+            log::info('after making function');
+        })->afterCreating(function(User $user) {
+            $user->update(['name' => 'Mostafa']);
+        });
     }
 }
