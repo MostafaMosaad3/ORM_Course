@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Factories\Sequence;
@@ -14,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-//        UserFactory::new()->adminAccount()->count(2)->create();
+        UserFactory::new()->count(1)->create();
 
         /**
          * override attribute can be used through passing array to make , create function
@@ -41,6 +42,14 @@ class UserSeeder extends Seeder
 //        )->create();
 //
 
+        /**
+         * disable the timestamps for specific row
+         */
+//        $user = User::withoutTimestamps(function() {
+//            User::create([
+//
+//            ]);
+//        });
 
 
 
