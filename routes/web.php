@@ -96,12 +96,75 @@ Route::get('/', function () {
      * upsert function
      */
 
-    $users = [
-        ['name' => 'ali' , 'email' => 'ali@ali.com' , 'password' =>'update_password'] ,
-        ['name' => 'ali12' , 'email' => 'ali12@ali.com' , 'password' =>'password'] ,
-    ];
+//    $users = [
+//        ['name' => 'ali' , 'email' => 'ali@ali.com' , 'password' =>'update_password'] ,
+//        ['name' => 'ali12' , 'email' => 'ali12@ali.com' , 'password' =>'password'] ,
+//    ];
+//
+//    User::upsert($users,['email'] ,['password'] ) ;
 
-    User::upsert($users,['email'] ,['password'] ) ;
+    /*
+     * retrieval
+     */
+
+    // all function
+//    $users = User::all();
+//    $users = User::all(['name as alias' , 'email']);
+//    dd($users);
+
+    /*
+     * get function the difference between it and the all is get can but condition before it
+     */
+//    $users  = User::where('id' , 1 )->get();
+
+    /*
+     * select function
+     */
+//    $users = User::where('id', 1)->select('id', 'name');
+
+    /*
+     * find function
+     */
+//    $users = User::find([1 , 2]);
+//    $users = User::findOr(20 , function (){
+//        dd('user not found');
+//    });
+
+//    $user = User::findOrFail(20) ;
+//    $users = User::find([1 , 2]);
+
+
+    /*
+     * first function is like the find
+     */
+
+
+    /*
+     * pluck to return the data of specific column
+     */
+//    $users = User::pluck('id' , 'name')->toArray();
+
+    /*
+     * value function to return the value of attribute
+     */
+
+//    $email = User::where('id',1)->value('email');
+//    dd($email);
+
+
+    /*
+     * aggregates function
+     */
+
+//    $users = User::count();
+//    $users = User::where()->sum();
+//    $users = User::where()->avg();
+//    $users = User::where()->min();
+//    $users = User::where()->max();
+//
+//    dd($users);
+
+
 
 
 });
