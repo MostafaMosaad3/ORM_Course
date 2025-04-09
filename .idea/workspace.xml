@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4bf1b486-c5aa-4d4c-972b-c117a498fd40" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,6 +234,14 @@
       <workItem from="1742258047403" duration="1888000" />
       <workItem from="1742427306818" duration="131000" />
       <workItem from="1742429168608" duration="48000" />
+      <workItem from="1743787761277" duration="2523000" />
+      <workItem from="1743823499017" duration="522000" />
+      <workItem from="1743889746146" duration="331000" />
+      <workItem from="1743902158447" duration="621000" />
+      <workItem from="1744081952509" duration="80000" />
+      <workItem from="1744083025693" duration="41000" />
+      <workItem from="1744149178305" duration="69000" />
+      <workItem from="1744161639195" duration="447000" />
     </task>
     <servers />
   </component>

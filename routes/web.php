@@ -165,6 +165,54 @@ Route::get('/', function () {
 //    dd($users);
 
 
+    /*
+     * constraint with the where condition
+     */
 
+    // whereStrict that check for the type and the value , work with collections only not query
+//    $user = User::get() ;
+//    dd($user->whereStrict('id' , '1')) ;
 
+    //whereBetween
+//    $users = User::whereBetween('wallet' , [100 , 300])->get() ;
+//    dd($users) ;
+
+    //whereIn
+//    $users = User::whereIn('id', [1,2,3])->get();
+//    dd($users);
+
+    // whereNull
+//    $users = User::whereNull('wallet')->get();
+//    dd($users);
+
+    // firstWhere
+//    $users = User::firstWhere('id', 3);
+//    dd($users);
+
+    // whereColumn
+////    $users = User::whereWallet(730)->get();
+//    $users  = User::whereColumn('wallet' , '>' , 'wallet2')->get() ;
+//    dd($users);
+
+    // whereAny , whereAll
+//    $users = User::whereAll(['name' , 'email'] , 'like' , '%Mostafa%')->get();
+//    $users = User::whereAny(['name' , 'email'] , 'like' , '%Mostafa%')->get();
+//    dd($users);
+
+    // when
+    $is_admin = 100 ;
+//    $users = User::when($is_admin > 50 ,
+//        function ($query) { return $query->where('is_admin', 100); }  ,
+//        function ($query) { return $query->where('is_admin', 0); })
+//    ->get();
+//    dd($users);
+
+//    $users = User::whereNull('wallet')->get() ;
+//    $users->whenEmpty( function() {
+//        dump('there is no data') ; } ,
+//        function () {
+//        dump('there is data') ;
+//        }
+//    );
+//
 });

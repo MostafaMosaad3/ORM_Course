@@ -20,6 +20,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
 //            $table->uuid('is_admin');
 //            $table->ulid('is_admin');
+            $table->string('wallet')->nullable();
+            $table->string('wallet2')->nullable(); ;
             $table->integer('is_admin')->default(0);
             $table->string('password');
             $table->rememberToken();

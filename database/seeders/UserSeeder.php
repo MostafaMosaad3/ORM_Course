@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        UserFactory::new()->count(1)->create();
+        UserFactory::new()->count(10)->create();
 
         /**
          * override attribute can be used through passing array to make , create function
