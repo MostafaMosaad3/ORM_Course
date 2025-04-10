@@ -215,4 +215,26 @@ Route::get('/', function () {
 //        }
 //    );
 //
+
+    /*
+     * Ordering , Grouping the data
+     */
+
+//    $users = User::orderBy('id' , 'Desc')->pluck('id');
+//    $users  = User::orderByRaw('Length(email) Desc')->pluck('email') ;
+//    dd($users) ;
+
+    // oldest , latest
+//        $users = User::oldest('id')->pluck('id');
+//        $users = User::latest('id')->pluck('id');
+
+
+    //reOrder , inRandomOrder
+//    $users = User::orderBy('created_at')->get();
+//    $reorderedUsers = User::orderBy('created_at')->reorder('email', 'asc')->get('email') ;
+//    dd($reorderedUsers) ;
+
+    // groupBy , Limit , Take , Offset , Skip
+//    $users = User::groupBy('is_admin')->get();
+//    dd($users) ;
 });
