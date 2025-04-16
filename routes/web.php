@@ -321,18 +321,30 @@ Route::get('/', function () {
 //
 //    $user = User::find(1)->forceDelete();
 
-    $user = User::create([
-        'name' =>'test' ,
-        'email' =>'test@test.com',
-        'password' =>Hash::make('password') ,
-        'is_admin' => 0 ,
-        'wallet' => 100 ,
-        'wallet2' => 200
-    ]) ;
+//    $user = User::create([
+//        'name' =>'test' ,
+//        'email' =>'test@test.com',
+//        'password' =>Hash::make('password') ,
+//        'is_admin' => 0 ,
+//        'wallet' => 100 ,
+//        'wallet2' => 200
+//    ]) ;
+//
+//    $admin = $user->replicate(['wallet'])->fill(['email'=>'test@admin.com'])->save() ;
+//    dd($admin) ;
 
-    $admin = $user->replicate(['wallet'])->fill(['email'=>'test@admin.com'])->save() ;
-    dd($admin) ;
 
+    /*
+     * Query Scopes
+     */
+
+
+//    $users = User::active()->get();
+//    $users = User::type('user')->pluck('is_admin' , 'name')->toArray();
+//    dd($users) ;
+//
+//    $users = User::withoutGlobalScopes(['active'])->get() ;
+//    dd($users) ;
 
 });
 
