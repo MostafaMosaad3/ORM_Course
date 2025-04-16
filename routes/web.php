@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -237,4 +238,51 @@ Route::get('/', function () {
     // groupBy , Limit , Take , Offset , Skip
 //    $users = User::groupBy('is_admin')->get();
 //    dd($users) ;
+
+
+    /*
+     * relational retrieving
+     */
+//    $users = User::with('posts')->get() ;
+//    dd($users) ;
+
+
+//    $users = User::has('posts' , '>' , 2)->get() ;
+//    dd($users);
+
+//    $user = User::whereHas('posts' , function($query) {
+//        $query->where('likes' , '>' , 90);
+//    })->get();
+//    dd($user);
+
+//    $user = User::withCount('posts as alias')->get() ;
+//    dd($user) ;
+
+
+    /*
+     * advanced concepts
+     */
+
+//    $users = User::chunk(3 , function($users) {
+//        dump($users) ;
+//    });
+
+//    $users = User::chunkById(3, function ($users) {
+//        foreach ($users as $user) {
+//            $user->update(['is_admin' => 1]);
+//        }
+//    });
+//
+//    dd($users);
+
+
+//    $users = User::addSelect(['last_post' => Post::select('title')
+//        ->whereColumn('user_id' , 'users.id')
+//        ->orderByDesc('id')
+//        ->take(1)])
+//        ->get() ;
+//    dd($users) ;
+
+
 });
+

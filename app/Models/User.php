@@ -99,9 +99,13 @@ class User extends Authenticatable
      * default attribute value
      */
 
-    protected $attributes = [
-        'is_admin' => 100 ,
-    ] ;
+//    protected $attributes = [
+//        'is_admin' => 100 ,
+//    ] ;
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 
 
 

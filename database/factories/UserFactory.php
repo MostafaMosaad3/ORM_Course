@@ -58,12 +58,12 @@ class UserFactory extends Factory
      * configure function is callback function that is running after using the factory
      */
 
-    public function configure()
-    {
-        return $this->afterMaking(function(User $user) {
-            log::info('after making function');
-        })->afterCreating(function(User $user) {
-            $user->update(['name' => 'Mostafa']);
-        });
-    }
+//    public function configure()
+//    {
+//        return $this->afterMaking(function(User $user) {
+//            log::info('after making function');
+//        })->afterCreating(function(User $user) {
+//            $user->update(['name' => 'Mostafa']);
+//        });
+//    }
 }
