@@ -346,6 +346,31 @@ Route::get('/', function () {
 //    $users = User::withoutGlobalScopes(['active'])->get() ;
 //    dd($users) ;
 
+    // mute events
+//    $user = User::withoutEvents(function (){
+//        User::create([
+//            'name' =>'test' ,
+//            'email' =>'test1234@test.com',
+//            'password' =>Hash::make('password') ,
+//            'is_admin' => 0 ,
+//            'wallet' => 100 ,
+//            'wallet2' => 200
+//        ]) ;
+//    });
+
+//    $user = new User ;
+//    $user->name = 'admin';
+//    $user->email = 'admin0@gmail.com';
+//    $user->password = Hash::make('12345678') ;
+//    $user->saveQuietly() ;
+
+    // make custom quietly function
+//    User::createQuietly([
+//        'name' =>'test' ,
+//        'email' =>'test000@test.com',
+//        'password' =>Hash::make('password') ,
+//    ]) ;
+
 });
 
 

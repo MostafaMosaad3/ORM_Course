@@ -3,9 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Events\UserEvent;
 use App\Models\Scopes\UserActiveScope;
+use App\Observers\UserObserver;
 use Database\Factories\AdminFactory;
 use Database\Factories\UserFactory;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
@@ -15,11 +18,13 @@ use Illuminate\Database\Eloquent\Prunable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Laravel\Sanctum\HasApiTokens;
 use Ramsey\Uuid\Uuid;
 
 //#[ScopedBy([UserActiveScope::class])]
+#[ObservedBy(UserObserver::class)]
 class User extends Authenticatable
 {
     /**
@@ -142,12 +147,26 @@ class User extends Authenticatable
     protected static function booted(){
 //        static::addGlobalScope(new UserActiveScope);
 
-        static::addGlobalScope('active', function (Builder $builder) {
-            $builder->where([
-                ['wallet' , '>' , 500] ,
-                ['wallet2' , '>' , 500] ,
-            ]) ;
-        });
+//        static::addGlobalScope('active', function (Builder $builder) {
+//            $builder->where([
+//                ['wallet' , '>' , 500] ,
+//                ['wallet2' , '>' , 500] ,
+//            ]) ;
+//        });
+
+//        static::creating(function (User $user) {
+//            Log::info('this is message from creating event' . $user->name) ;
+//        });
+    }
+//
+//    protected $dispatchesEvents = [
+//        'creating' => UserEvent::class
+//    ] ;
+
+    protected static function createQuietly(array $array){
+        $user = new static ( $array );
+        $user->password = Hash::make($array['password']);
+        $user->saveQuietly();
     }
 
 }
