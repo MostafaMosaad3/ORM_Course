@@ -5,11 +5,15 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\AdminFactory;
 use Database\Factories\UserFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Prunable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Log;
 use Laravel\Sanctum\HasApiTokens;
 use Ramsey\Uuid\Uuid;
 
@@ -20,8 +24,17 @@ class User extends Authenticatable
      */
 //    use HasUuids ;
 //    use HasUlids ;
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable , SoftDeletes , Prunable ;
 
+    public function prunable() :Builder
+    {
+        return static::where('wallet'  ,'<'  , 200) ;
+    }
+
+    public function pruning()
+    {
+        Log::info('this is the pruning user model' . $this->id);
+    }
 
 
 //    /**
@@ -62,6 +75,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'wallet',
+        'wallet2' ,
+        'is_admin'
     ];
 
     /**

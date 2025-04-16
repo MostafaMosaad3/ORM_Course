@@ -284,5 +284,56 @@ Route::get('/', function () {
 //    dd($users) ;
 
 
+    /*
+     * Delete Section
+     */
+
+//    $user = User::find(1)->delete() ;
+//    dd($user) ; // the single delete return boolean value
+//
+//
+//    $users = User::whereIn('id', [1,2,3])->delete();
+//    dd($users) ; // when the mass delete return the number of deleted objects
+
+//    // the destroy is static function
+//    $user = User::destroy(5) ;
+//    dd($user); // return the number of deleted object
+
+//    $users = User::destroy([6 , 7 , 8]) ;
+//    dd($users) ; // the mass delete in the destroy case return the number of deleted objects and the hooks is not applied
+
+//    User::truncate() ;
+
+//    User::destroy(1) ;
+
+    /*
+     * Soft Delete Options
+     */
+//
+//    $user = User::onlyTrashed()->get() ;
+//    dd($user);
+
+//    $users = User::withTrashed()->get() ;
+//    dd($users) ;
+//
+//    $user = User::onlyTrashed()->restore() ;
+//    dd($user) ;
+//
+//    $user = User::find(1)->forceDelete();
+
+    $user = User::create([
+        'name' =>'test' ,
+        'email' =>'test@test.com',
+        'password' =>Hash::make('password') ,
+        'is_admin' => 0 ,
+        'wallet' => 100 ,
+        'wallet2' => 200
+    ]) ;
+
+    $admin = $user->replicate(['wallet'])->fill(['email'=>'test@admin.com'])->save() ;
+    dd($admin) ;
+
+
 });
+
 
