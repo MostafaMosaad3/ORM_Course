@@ -127,9 +127,7 @@ class User extends Authenticatable
 //        'is_admin' => 100 ,
 //    ] ;
 
-    public function posts(){
-        return $this->hasMany(Post::class);
-    }
+
 
     public function scopeActive(Builder $query){
         $query->where([
@@ -163,11 +161,40 @@ class User extends Authenticatable
 //        'creating' => UserEvent::class
 //    ] ;
 
-    protected static function createQuietly(array $array){
-        $user = new static ( $array );
-        $user->password = Hash::make($array['password']);
-        $user->saveQuietly();
+//    protected static function createQuietly(array $array){
+//        $user = new static ( $array );
+//        $user->password = Hash::make($array['password']);
+//        $user->saveQuietly();
+//    }
+
+    public function phone(){
+        return $this->hasOne(Phone::class);
     }
 
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
+
+    public function latestPost(){
+        return $this->hasOne(Post::class)->latestOfMany('likes');
+//        return $this->hasOne(Post::class)->ofMany('likes' , 'min');
+//        return $this->posts()->one();
+
+        // this way return collection
+//        return $this->posts()->latest('likes')->take(1);
+    }
+
+
+    public function serial(){
+//        return $this->hasOneThrough(Serial::class,phone::class);
+//        return $this->through('phone')->has('serial');
+        return $this->throughPhone()->hasSerial() ;
+    }
+
+    public function comments(){
+//        return $this->hasManyThrough(Comment::class, Post::class);
+//        return $this->through('posts')->has('comments');
+        return $this->throughPosts()->hasComments() ;
+    }
 }
 

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Phone;
 use App\Models\Post;
+use App\Models\Serial;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -371,6 +373,62 @@ Route::get('/', function () {
 //        'password' =>Hash::make('password') ,
 //    ]) ;
 
+//    $user = User::find(1) ;
+//    dd($user->phone) ;
+//
+
+    /*
+     * Retrieving Relation Rule
+     */
+
+    // dynamic property
+//    $phone = Phone::find(1) ;
+//    dd($phone->user->wallet);
+
+
+    // query builder collection
+//    $phone = Phone::find(1) ;
+//    $sum = $phone->user()->sum(DB::raw('wallet + wallet2')) ;
+//    dd($sum) ;
+
+
+
+    // one to many relation
+//    $post = Post::find(1) ;
+//    dd($post->user->name);
+
+    // belongs to function
+//    $user = User::find(1) ;
+//    $post = Post::whereBelongsTo($user)->get() ;
+//    dd($post) ;
+
+    /*
+     * has one to many relation
+     */
+
+//    $user = User::find(1) ;
+//    dd($user->latestPost) ;
+
+    /*
+     * has one through
+     */
+//
+//    $user = User::find(1) ;
+//    dd($user->phone->serial->serial_number);
+
+//    dd($user->serial) ;
+
+    /*
+     * has many through
+     */
+
+//    $user = User::find(1) ;
+//    foreach ($user->posts as $post) {
+//        dd($post->comments->pluck('id')->toArray());
+//    }
+
+    $user = User::find(1) ;
+    dd($user->comments->pluck('comment')->toArray());
 });
 
 
