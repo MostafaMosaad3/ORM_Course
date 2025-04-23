@@ -427,8 +427,19 @@ Route::get('/', function () {
 //        dd($post->comments->pluck('id')->toArray());
 //    }
 
-    $user = User::find(1) ;
-    dd($user->comments->pluck('comment')->toArray());
+//    $user = User::find(1) ;
+//    dd($user->comments->pluck('comment')->toArray());
+
+    /*
+     * many to many relationship
+     */
+//    $user = User::find(1) ;
+//    foreach ($user->roles as $role) {
+//        dd( $role->pivot->created_at);
+//    }
+
+
+
 });
 
 

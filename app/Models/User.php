@@ -196,5 +196,9 @@ class User extends Authenticatable
 //        return $this->through('posts')->has('comments');
         return $this->throughPosts()->hasComments() ;
     }
+
+    public function roles(){
+        return $this->belongsToMany(Role::class)->withPivot( 'role_id')->withTimestamps();
+    }
 }
 
