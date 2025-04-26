@@ -24,7 +24,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Ramsey\Uuid\Uuid;
 
 //#[ScopedBy([UserActiveScope::class])]
-#[ObservedBy(UserObserver::class)]
+//#[ObservedBy(UserObserver::class)]
 class User extends Authenticatable
 {
     /**
@@ -199,6 +199,10 @@ class User extends Authenticatable
 
     public function roles(){
         return $this->belongsToMany(Role::class)->withPivot( 'role_id')->withTimestamps();
+    }
+
+    public function image(){
+        return $this->morphOne(Image::class, 'imageable');
     }
 }
 

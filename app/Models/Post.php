@@ -34,11 +34,23 @@ class Post extends Model
         Log::info('this is pruning post' . $this->id);
     }
 
-    public function comments(){
-        return $this->hasMany(Comment::class);
+    public function image(){
+        return $this->morphOne(Image::class , 'imageable');
     }
 
 
+    public function comments(){
+        return $this->morphMany(Comment::class , 'commentable');
+    }
+
+    public function latestComment(){
+        return $this->morphOne(Comment::class , 'commentable')->latestOfMany();
+    }
+
+
+    public function tags(){
+        return $this->morphToMany(Tag::class , 'taggable');
+    }
 
 
 }

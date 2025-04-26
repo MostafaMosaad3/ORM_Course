@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Comment;
+use App\Models\Image;
 use App\Models\Phone;
 use App\Models\Post;
 use App\Models\Serial;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -440,6 +443,35 @@ Route::get('/', function () {
 
 
 
+    /*
+     * one to one morph relation
+     */
+
+//    $post = Post::find(1) ;
+//    dd($post->image->name) ;
+
+//    $image = Image::find(5) ;
+//    dd($image->imageable->likes) ;
+
+
+    /*
+     * one to many morph relation
+     */
+
+//    $post = Post::find(1) ;
+//    dd($post->latestComment->name) ;
+//    foreach ($post->comments as $comment) {
+//        dump($comment->name) ;
+//    }
+
+
+//    $comment = Comment::find(1) ;
+//    dd($comment->commentable) ;
+
+//    $tag = Tag::find(1) ;
+//    foreach ($tag->posts as $post) {
+//        dump($post->pivot->id); // Access pivot data here
+//    }
 });
 
 
